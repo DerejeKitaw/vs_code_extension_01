@@ -10,7 +10,8 @@
 		"Other"
 	],
 	"activationEvents": [
-		"onCommand:extension.helloWorld"
+		"onCommand:extension.helloWorld",
+		"onCommand:extension.htmlTagWrapper"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
@@ -18,16 +19,34 @@
 			{
 				"command": "extension.helloWorld",
 				"title": "Hello World"
+			},
+			{
+				"command": "extension.htmlTagWrapper",
+				"title": "HTML: Wrap tag"
 			}
 		],
 		"menus": {
 			"editor/context": [
 				{
 					"when": "resourceLangId == html",
-          "command": "extension.helloWorld",
+          "command": "extension.htmlTagWrapper",
           "group": "YourGroup@1"
 				}
 			]
+		},
+		"configuration": {
+			"type": "object",
+			"title": "Basic Multi Root Sample",
+			"properties": {
+				"multiRootSample.statusColor": {
+					"type": [
+						"string"
+					],
+					"default": "#FFFFFF",
+					"description": "Color to use for the status bar item. Can be set per workspace folder.",
+					"scope": "resource"
+				}
+			}
 		}
 	},
 	"scripts": {
