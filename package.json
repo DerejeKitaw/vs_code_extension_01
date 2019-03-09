@@ -19,7 +19,16 @@
 				"command": "extension.helloWorld",
 				"title": "Hello World"
 			}
-		]
+		],
+		"menus": {
+			"editor/context": [
+				{
+					"when": "resourceLangId == html",
+          "command": "extension.helloWorld",
+          "group": "YourGroup@1"
+				}
+			]
+		}
 	},
 	"scripts": {
 		"vscode:prepublish": "npm run compile",
